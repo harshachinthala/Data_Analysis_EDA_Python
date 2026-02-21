@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>📊 Comprehensive Data Analysis & Feature Engineering</h1>
+  <h1>📊 Exploratory Data Analysis & Feature Engineering</h1>
   <p>A hands-on data analysis project where I explored, cleaned, and found important patterns in different real-world datasets using Python.</p>
 </div>
 
