@@ -9,13 +9,16 @@
 ![NumPy](https://img.shields.io/badge/Numerical_Computing-NumPy-013243?logo=numpy)
 ![Matplotlib](https://img.shields.io/badge/Visualization-Matplotlib-11557c)
 ![Seaborn](https://img.shields.io/badge/Visualization-Seaborn-4c6e91?logo=databricks)
+![Plotly](https://img.shields.io/badge/Interactive_Visualization-Plotly-3f4f75?logo=plotly)
+![Folium](https://img.shields.io/badge/Geospatial-Folium-77B829)
 ![SciPy](https://img.shields.io/badge/Statistics-SciPy-8CAAEE?logo=scipy)
 ![Scikit-Learn](https://img.shields.io/badge/Machine_Learning-Scikit_Learn-F7931E?logo=scikit-learn)
 ![Statsmodels](https://img.shields.io/badge/Statistical_Models-Statsmodels-green)
+![Prophet](https://img.shields.io/badge/Forecasting-Prophet-blue)
 
 ## 📊 Project Overview
 
-This repository contains a comprehensive set of data analysis exercises designed to tackle varying levels of complexity—from simple descriptive statistics to advanced feature engineering and time-series anomaly detection. 
+This repository contains a comprehensive set of data analysis exercises designed to tackle varying levels of complexity—from simple descriptive statistics to advanced feature engineering, time-series anomaly detection, forecasting, and interactive data visualizations. 
 
 ### 🟢 Foundation Data Exploration (Easy)
 1. **Simple Histogram Analysis (`student_scores.csv`)**
@@ -41,17 +44,33 @@ This repository contains a comprehensive set of data analysis exercises designed
    - **Data Preprocessing:** Handled outliers via capping (Winsorization), performed One-Hot Encoding for categorical variables, and scaled numerical features using `StandardScaler`.
    - **Insights:** Identified `credit_score`, `debt`, `interest_rate`, `loan_amount`, and `income` as the top 5 features driving loan default predictions.
 
+### 🟣 Time Series Forecasting & Interactive Dashboards (Advanced)
+7. **Time Series Decomposition & Forecasting (`Class_5_Assignment_Final.ipynb`)**
+   - **Decomposition:** Applied both Classical and STL (Seasonal and Trend decomposition using Loess) decomposition to extract trend, seasonal, and residual components. Proved STL's robustness against anomalies.
+   - **Forecasting:** Built predictive models spanning 90 days using Holt-Winters Exponential Smoothing, SARIMA, and Facebook Prophet. Generated comprehensive uncertainty bands (80% and 95% confidence intervals) through bootstrapping and residual simulations.
+   - **Validation:** Validated models using hold-out datasets evaluating Mean Absolute Error (MAE), RMSE, and MAPE metrics.
+8. **Interactive Plotly Dashboards (`Class_5_Assignment_Final.ipynb`)**
+   - Designed interactive analytical dashboards equipped with range sliders, seasonal isolation views, index-based comparison metrics, and interactive aggregation dropdowns.
+
+### 🔵 Geospatial & Flow Analysis
+9. **Choropleth Maps & Sankey Diagrams (`In_Class6_Assignment.ipynb`)**
+   - **Geospatial Mapping:** Implemented dynamic Choropleth maps using Folium for spatial data representation augmented with Pandas dataframe integration and interactive tooltips.
+   - **Flow Visualization:** Constructed geographic and abstract flow Sankey diagrams employing Plotly to track variable movements and relational volumes.
+
 ## ⚙️ Key Methodologies
+- **Time Series Analysis:** Classical & STL Decomposition, Moving Averages, Seasonality Adjustment, Residual Diagnostic plotting.
+- **Forecasting Models:** SARIMA, Holt-Winters Exponential Smoothing, Facebook Prophet.
 - **Outlier Handling:** IQR (Interquartile Range) Method, Winsorization, and Z-score anomaly detection.
-- **Transformations:** Logarithmic and Square Root transformations for right-skewed variables.
-- **Multicollinearity Checks:** Variance Inflation Factor (VIF) analysis.
-- **Feature Importance:** Extracted using `RandomForestClassifier`.
-- **Scaling & Encoding:** Z-score standardization and One-Hot Encoding for machine learning readiness.
+- **Machine Learning Preparation:** Transformations (Log/Sqrt), VIF checks, Z-score standardization, One-Hot Encoding.
+- **Interactive Visualization:** Plotly Dashboards, customized Range Sliders, Geospatial Mapping (Folium Choropleth), Sankey Flow Diagrams.
 
 ## 📁 Repository Structure
 ```
 ├── README.md                      # Project Documentation
-├── Group_Assignment_4.ipynb       # Main Jupyter Notebook
+├── Group_Assignment_4.ipynb       # Foundation & Advanced EDA Notebook
+├── Class_5_Assignment_Final.ipynb # Time Series Forecasting & Dashboard Notebook
+├── In_Class6_Assignment.ipynb     # Geospatial Maps & Sankey Flows Notebook
+├── Class 6_in Class Assignment.pdf# Associated assignment instructions
 ├── final_processed_dataset.csv    # Output: Cleaned and engineered dataset
 ├── data/                          # Dataset directory (if applicable)
 │   ├── student_scores.csv
@@ -72,18 +91,19 @@ This repository contains a comprehensive set of data analysis exercises designed
 
 2. **Install required dependencies:**
    ```bash
-   pip install pandas numpy matplotlib seaborn scipy scikit-learn statsmodels
+   pip install pandas numpy matplotlib seaborn scipy scikit-learn statsmodels plotly folium prophet
    ```
 
 3. **Run the Analysis:**
    - Launch Jupyter Notebook or Jupyter Lab:
      ```bash
-     jupyter notebook Group_Assignment_4.ipynb
+     jupyter notebook
      ```
-   - Execute the cells sequentially to reproduce the visualizations and final processed datasets.
+   - Execute notebooks iteratively based on your area of interest (e.g., `Group_Assignment_4.ipynb`, `Class_5_Assignment_Final.ipynb`, `In_Class6_Assignment.ipynb`).
 
 ## 📝 Key Insights & Outcomes
-- **Data Normalization proves critical:** Log transformations effectively neutralized high skewness in financial transaction data, preserving extreme values without distorting baseline models.
-- **Feature Engineering boosts separability:** Creating features like `debt_income_ratio` provided higher predictive power than raw variables individually.
 - **Robust Outlier Management:** Instead of deletion, Winsorization and flag creation preserved the integrity of real-world financial data anomalies (like high-value customer transactions).
 - **Time Series Insights:** Analyzing seasonality confirmed distinct weekend and holiday-driven sales spikes within the transaction pipelines.
+- **Forecasting Precision:** Integrating Facebook Prophet alongside SARIMA provided dynamic, seasonally-aware predictions with deeply quantified uncertainty intervals, demonstrating high resiliency properly fitting unscaled sales data.
+- **Enhanced Data Accessibility:** Incorporating customized Plotly dashboards permitted rapid drilling into datasets by stakeholders through custom aggregation and time-slicing features.
+- **Spatial Awareness:** Deploying Folium and Sankey maps uncovered hidden geographical flows, effectively transitioning abstract relational volumes into highly interpretable maps.
